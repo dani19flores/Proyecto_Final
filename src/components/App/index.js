@@ -1,13 +1,21 @@
+import { useState } from "react";
 import Products from "../Products";
-import { AppContainer, AppHeader, HeaderTitle } from "./styles";
+import { AppContainer, AppHeader, HeaderTitle, ShoppingCart_btn } from "./styles";
 
 function App() {
+  const [visible, setVisible] = useState(true)
+
+  const handleVisible = () =>{
+      setVisible(!visible);
+  }
+
   return (
     <AppContainer>
         <AppHeader>
             <HeaderTitle>Shop</HeaderTitle>
+            <ShoppingCart_btn onClick={handleVisible}>Shopping</ShoppingCart_btn>
         </AppHeader>
-        <Products/>
+        <Products visible={visible}/>
     </AppContainer>
   );
 }

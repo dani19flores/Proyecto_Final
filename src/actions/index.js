@@ -1,4 +1,4 @@
-export const addTask = (product) =>{
+export const addCart = (product) =>{
     return {
         type: "ADD_CART",
         payload: {
@@ -9,7 +9,7 @@ export const addTask = (product) =>{
     }
 }
 
-export const removeTask = (id) => {
+export const removeCart = (id) => {
     return {
         type: "REMOVE_CART",
         payload: id,

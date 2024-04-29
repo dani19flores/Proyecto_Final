@@ -32,14 +32,9 @@ const fadeIn = keyframes`
     }
 `;
 
-const AnimatedBox = styled.div`
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 40px;
-    background-color: #bbb;
-    animation: ${fadeIn} 3s ease-in-out;
+const ContainerProducts = styled.article`
+    display: flex;
+    justify-content: space-between;
 `;
 
-export { SearchContainer, SearchInput, AnimatedBox };
+export { SearchContainer, SearchInput, ContainerProducts};

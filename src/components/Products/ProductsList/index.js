@@ -8,10 +8,15 @@ import {Section_container,
     Price_product, 
     Add_product} from "./style";
 
+import { useDispatch } from 'react-redux';
+import { addCart } from '../../../actions';
+
 const ProductsList = ({ shows }) => {
 
-    const handle_addProduct = () =>{
+    const dispatch = useDispatch();
 
+    const handle_addProduct = (product) =>{
+        dispatch(addCart(product));
     }
 
     return (
@@ -22,7 +27,7 @@ const ProductsList = ({ shows }) => {
                     <Title_product>{show.title}</Title_product>
                     <Prices_container>
                         <Price_product>${(show.price * 17).toLocaleString()}</Price_product>
-                        <Add_product onClick={handle_addProduct}>Add To Cart</Add_product>
+                        <Add_product onClick={() => handle_addProduct(show)}>Add To Cart</Add_product>
                     </Prices_container>
                 </Container_List>
             ))}

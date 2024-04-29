@@ -12,9 +12,13 @@ const AppContainer = styled.main`
 
 const AppHeader = styled.header`
     
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     box-sizing: border-box;
     background-color: #000;
     border: 1px solid #e5e7eb;
+    padding: 10px 20px;
 `;
 
 const HeaderTitle =  styled.h1`
@@ -25,4 +29,13 @@ const HeaderTitle =  styled.h1`
     color: #fff;
 `;
 
-export { AppContainer, AppHeader, HeaderTitle }
+const ShoppingCart_btn = styled.button`
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid #e5e7eb;
+`;
+
+export { AppContainer, AppHeader, HeaderTitle, ShoppingCart_btn }

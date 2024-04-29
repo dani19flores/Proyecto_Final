@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import getAllProducts from "../Hooks/getAllProducts";
-import {SearchContainer, SearchInput} from "./style";
+import {SearchContainer, SearchInput, ContainerProducts} from "./style";
 import ProductsList from './ProductsList';
+import ShoppingCart from './ShoppingCart';
 
-const Products = () => {
+const Products = ({visible}) => {
     const { loading, error, response} = getAllProducts(
         "https://api.escuelajs.co/api/v1/products"
     );
 
     return (
-        <article>
+        <ContainerProducts>
             <h1>Products</h1>
             {loading ? (
                 <p>Cargando...</p>
@@ -18,7 +19,8 @@ const Products = () => {
             ) : (
                 <ProductsList shows={response} />
             )}
-        </article>
+        {visible && <ShoppingCart />}
+        </ContainerProducts>
     );
 };
 
