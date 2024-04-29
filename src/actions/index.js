@@ -1,9 +1,9 @@
-export const addTask = (task) =>{
+export const addTask = (product) =>{
     return {
         type: "ADD_CART",
         payload: {
             id: Date.now(),
-            task,
+            product,
             completed: false,
         }
     }
@@ -11,7 +11,7 @@ export const addTask = (task) =>{
 
 export const removeTask = (id) => {
     return {
-        type: "REMOVE_ID",
+        type: "REMOVE_CART",
         payload: id,
     }
 }

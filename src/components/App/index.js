@@ -1,9 +1,14 @@
-import './App.css';
+import Products from "../Products";
+import { AppContainer, AppHeader, HeaderTitle } from "./styles";
 
 function App() {
   return (
-    <div className="App">
-    </div>
+    <AppContainer>
+        <AppHeader>
+            <HeaderTitle>Shop</HeaderTitle>
+        </AppHeader>
+        <Products/>
+    </AppContainer>
   );
 }
 
