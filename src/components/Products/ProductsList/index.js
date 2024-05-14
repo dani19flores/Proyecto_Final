@@ -1,29 +1,34 @@
 import React from 'react';
 
-import {Section_container,
+import {
+    Section_container,
     Container_List,
     Title_product, 
     Imagen_product, 
     Prices_container, 
     Price_product, 
-    Add_product} from "./style";
+    Add_product
+} from "./style";
 
 import { useDispatch } from 'react-redux';
-import { addCart } from '../../../actions';
+import { addProducts } from "../../../state/products.slice";
+
+const cleanImageUrl = (url) => {
+    return url.replace(/^\["|"\]$/g, '').replace('[', '').replace(']', '').replace('"', '');
+};
 
 const ProductsList = ({ shows }) => {
-
     const dispatch = useDispatch();
 
-    const handle_addProduct = (product) =>{
-        dispatch(addCart(product));
+    const handle_addProduct = (product) => {
+        dispatch(addProducts(product));
     }
 
     return (
         <Section_container>
             {shows.map(show => (
                 <Container_List key={show.id}> 
-                    <Imagen_product src={show.images[0].replace('[', '').replace(']', '')}></Imagen_product>
+                    <Imagen_product src={cleanImageUrl(show.images[0])}></Imagen_product>
                     <Title_product>{show.title}</Title_product>
                     <Prices_container>
                         <Price_product>${(show.price * 17).toLocaleString()}</Price_product>

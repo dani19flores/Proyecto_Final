@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Products from "../Products";
+import Products from "../components/Products";
 import { AppContainer, AppHeader, HeaderTitle, ShoppingCart_btn } from "./styles";
 
 function App() {
