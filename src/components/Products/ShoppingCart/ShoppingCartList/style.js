@@ -40,4 +40,4 @@ const DataContainer = styled.div`
 `;
 
 
-export { Title_product, Imagen_product, Price_product, RemoveButton, DataContainer}
+export { Title_product, Imagen_product, Price_product, RemoveButton, DataContainer };

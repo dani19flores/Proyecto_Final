@@ -1,4 +1,4 @@
-import { DataContainer, Imagen_product, Price_product, RemoveButton, Title_product } from "./style"
+import { DataContainer, Imagen_product, Price_product, RemoveButton, Title_product } from "./style";
 
 const cleanImageUrl = (url) => {
     return url.replace(/^\["|"\]$/g, '').replace('[', '').replace(']', '').replace('"', '');

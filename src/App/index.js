@@ -7,6 +7,7 @@ import { FaBars } from "react-icons/fa";
 import MainPage from "../components/MainPage";
 import { Route ,Routes } from 'react-router-dom';
 import { useSelector } from "react-redux";
+import PaymentForm from "../components/checkOut";
 
 function App() {
   const [visible, setVisible] = useState(false)
@@ -37,6 +38,7 @@ function App() {
           <Route path="/" element={<MainPage visible={visible} menu_visible={menu_visible}/>} />
           <Route path="/home" element={<MainPage visible={visible} menu_visible={menu_visible}/>} />
           <Route path="/cart" element={<Products visible={visible} menu_visible={menu_visible}/>} />
+          <Route path="/checkout" element={<PaymentForm visible={visible} menu_visible={menu_visible}/>} />
         </Routes>
     </AppContainer>
     

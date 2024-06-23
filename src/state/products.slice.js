@@ -7,7 +7,7 @@ export const fetchProducts = createAsyncThunk('product/fetchProducts', async () 
     const response = await axios.get('https://api.escuelajs.co/api/v1/products');
     return response.data.slice(0, 10);
 });
-
+ 
 
 const productSlice = createSlice({
     name:'product',
@@ -15,7 +15,8 @@ const productSlice = createSlice({
         status: IDLE,
         products: [],
         shoppingCart: [],
-        ProductCount: 0
+        ProductCount: 0,
+        Totalpayment: 0
     },
     //imer
     reducers:{
@@ -26,7 +27,10 @@ const productSlice = createSlice({
         removeProduct: (state,action) => {
             state.shoppingCart = state.shoppingCart.filter(product => product.id !== action.payload);
             state.ProductCount--;
-        }
+        },
+        updateTotalPayment: (state,action) => {
+            state.Totalpayment = action.payload;
+        } 
     },
     extraReducers: builder => {
         builder
@@ -46,6 +50,6 @@ const productSlice = createSlice({
     }
 });
 
-export const {addProducts,removeProduct} = productSlice.actions;
+export const {addProducts,removeProduct,updateTotalPayment} = productSlice.actions;
 const { reducer: productsReducer } = productSlice;
 export default productsReducer;

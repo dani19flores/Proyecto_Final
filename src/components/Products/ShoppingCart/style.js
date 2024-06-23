@@ -9,4 +9,22 @@ const ListProductContainer = styled.section`
     align-items: center;
 `;
 
-export { ListProductContainer}
+const CheckoutButton = styled.button`
+    padding: 10px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100%;
+`;
+
+const TotalPrice = styled.div`
+    color: #fff;
+    margin: 1rem 0;
+    font-size: 1.5rem;
+    text-align: right;
+`;
+
+export { ListProductContainer, CheckoutButton, TotalPrice}
