@@ -22,7 +22,6 @@ const AppHeader = styled.header`
 `;
 
 const HeaderTitle =  styled.h1`
-    width: 100%;
     text-align: center;
     font-weight: 600;
     font-size: 40px;
@@ -31,6 +30,7 @@ const HeaderTitle =  styled.h1`
 
 const ShoppingCart_btn = styled.button`
     background-color: transparent;
+    height: 50px;
     border: none;
     color: #fff;
     font-size: 16px;
@@ -38,4 +38,12 @@ const ShoppingCart_btn = styled.button`
     border: 1px solid #e5e7eb;
 `;
 
-export { AppContainer, AppHeader, HeaderTitle, ShoppingCart_btn }
+const IconWrapper = styled.div`
+    cursor: pointer;
+
+    &:active {
+        transform: scale(0.95);
+    }
+`;
+
+export { AppContainer, AppHeader, HeaderTitle, ShoppingCart_btn,  IconWrapper}

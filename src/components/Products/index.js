@@ -5,8 +5,9 @@ import ProductsList from './ProductsList';
 import { fetchProducts } from "../../state/products.slice";
 import ShoppingCart from './ShoppingCart';
 import { FAILED, IDLE, LOADING, SUCCEEDED } from "../../state/status";
+import Menu from "../Menu";
 
-const Products = ({visible}) => {
+const Products = ({visible,menu_visible}) => {
     const dispatch = useDispatch();
     const products = useSelector(state => state.products.products);
     const status = useSelector(state => state.products.status);
@@ -16,7 +17,9 @@ const Products = ({visible}) => {
 
     return (
         <ContainerProducts>
-            <h1>Products</h1>
+            {
+                menu_visible && <Menu />
+            }
             {
                 (products && status === SUCCEEDED ) && <ProductsList shows={products} />
             }
@@ -24,7 +27,7 @@ const Products = ({visible}) => {
                 visible && <ShoppingCart />
             }
             {
-                status === LOADING && <p>Cargando tareas ....</p>
+                status === LOADING && <p>Cargando productos ....</p>
             }
 
             {

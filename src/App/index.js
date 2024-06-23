@@ -1,22 +1,42 @@
 import { useState } from "react";
 import Products from "../components/Products";
-import { AppContainer, AppHeader, HeaderTitle, ShoppingCart_btn } from "./styles";
+import { AppContainer, AppHeader, IconWrapper } from "./styles";
+import { SiHomeadvisor } from "react-icons/si";
+import { FaShoppingCart } from "react-icons/fa";
+import { FaBars } from "react-icons/fa";
+import MainPage from "../components/MainPage";
+import { Route ,Routes } from 'react-router-dom';
 
 function App() {
-  const [visible, setVisible] = useState(true)
+  const [visible, setVisible] = useState(false)
+  const [menu_visible, menu_setVisible] = useState(false)
 
   const handleVisible = () =>{
       setVisible(!visible);
   }
 
+  const handleMenuVisible = () =>{
+    menu_setVisible(!menu_visible);
+}
+
   return (
     <AppContainer>
         <AppHeader>
-            <HeaderTitle>Shop</HeaderTitle>
-            <ShoppingCart_btn onClick={handleVisible}>Shopping</ShoppingCart_btn>
+          <IconWrapper>
+            <FaBars size={40} color="white" onClick={handleMenuVisible}/>
+          </IconWrapper>
+            <SiHomeadvisor size={50} color="white"/>
+            <IconWrapper>
+              <FaShoppingCart size={40} color="white" onClick={handleVisible}/>
+            </IconWrapper>
         </AppHeader>
-        <Products visible={visible}/>
+        <Routes>
+          <Route path="/" element={<MainPage visible={visible} menu_visible={menu_visible}/>} />
+          <Route path="/home" element={<MainPage visible={visible} menu_visible={menu_visible}/>} />
+          <Route path="/cart" element={<Products visible={visible} menu_visible={menu_visible}/>} />
+        </Routes>
     </AppContainer>
+    
   );
 }
 
