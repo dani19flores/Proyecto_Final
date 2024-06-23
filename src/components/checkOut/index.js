@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import {Form,Input,Label,Button,ContainerPage,Title,PageContainer, Paragraph} from "./style";
+import {Form,Input,Label,Button,ContainerPage,Title,PageContainer, Paragraph,FileContainer} from "./style";
 import Menu from '../Menu';
 import ShoppingCart from "../Products/ShoppingCart";
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const PaymentForm = ({menu_visible,visible}) => {
     const [visibleForm,setVisibleForm] = useState(false);
+    const navigate = useNavigate();
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -13,6 +15,10 @@ const PaymentForm = ({menu_visible,visible}) => {
 
     const handleEnableTypePayment = () =>{
         setVisibleForm(!visibleForm);
+    }
+
+    const handleCompletePayment = () =>{
+        navigate('/');
     }
 
     const Totalpayment = useSelector(state => state.products.Totalpayment);
@@ -37,28 +43,40 @@ const PaymentForm = ({menu_visible,visible}) => {
                     visibleForm && (
                         <>
                             <Form onSubmit={handleSubmit}>
-                                <Label htmlFor="firstName">Nombre</Label>
-                                <Input required id="firstName" name="firstName" type="text" />
+                                <FileContainer>
+                                    <Label htmlFor="firstName">Nombre</Label>
+                                    <Input required id="firstName" name="firstName" type="text" />
+                                </FileContainer>
 
-                                <Label htmlFor="lastName">Apellido</Label>
-                                <Input required id="lastName" name="lastName" type="text" />
+                                <FileContainer>
+                                    <Label htmlFor="lastName">Apellido</Label>
+                                    <Input required id="lastName" name="lastName" type="text" />
+                                </FileContainer>
 
-                                <Label htmlFor="address1">Dirección</Label>
-                                <Input required id="address1" name="address1" type="text" />
+                                <FileContainer>
+                                    <Label htmlFor="address1">Dirección</Label>
+                                    <Input required id="address1" name="address1" type="text" />
+                                </FileContainer>
 
-                                <Label htmlFor="cardName">Nombre en la tarjeta</Label>
-                                <Input required id="cardName" name="cardName" type="text" />
+                                <FileContainer>
+                                    <Label htmlFor="cardName">Nombre en la tarjeta</Label>
+                                    <Input required id="cardName" name="cardName" type="text" />
+                                </FileContainer>
 
-                                <Label htmlFor="cardNumber">Número de la tarjeta</Label>
-                                <Input required id="cardNumber" name="cardNumber" type="text" />
+                                <FileContainer>
+                                    <Label htmlFor="cardNumber">Número de la tarjeta</Label>
+                                    <Input required id="cardNumber" name="cardNumber" type="text" />
+                                </FileContainer>
 
-                                <Label htmlFor="expDate">Fecha de expiración</Label>
-                                <Input required id="expDate" name="expDate" type="text" />
+                                <FileContainer>
+                                    <Label htmlFor="expDate">Fecha de expiración</Label>
+                                    <Input required id="expDate" name="expDate" type="text" />
+                                </FileContainer>
 
-                                <Label htmlFor="cvv">CVV</Label>
-                                <Input required id="cvv" name="cvv" type="text" />
-
-                                <Button type="submit">Aceptar</Button>
+                                <FileContainer>
+                                    <Label htmlFor="cvv">CVV</Label>
+                                    <Input required id="cvv" name="cvv" type="text" />
+                                </FileContainer>
                             </Form>
                         </>
                     )
@@ -70,7 +88,7 @@ const PaymentForm = ({menu_visible,visible}) => {
                     hoverBgColor="#A9A9A9">
                         Detalle
                 </Button>
-                <Button>Completar compra</Button>
+                <Button onClick={handleCompletePayment}>Completar compra</Button>
             </PageContainer>
             
             {

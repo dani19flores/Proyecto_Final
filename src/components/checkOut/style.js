@@ -1,16 +1,23 @@
 import styled from 'styled-components';
 
 const Form = styled.form`
+    flex-wrap: wrap;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 15px;
 `;
 
 const Input = styled.input`
     padding: 10px;
+    margin: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 5px;
+`;
+
+const FileContainer = styled.div`
+    display: flex;
+    flex-direction: column;
 `;
 
 const Label = styled.label`
@@ -65,4 +72,4 @@ const Paragraph = styled.p`
     color: white;
 `;
 
-export {Form,Input,Label,Button,ContainerPage,Title,PageContainer,Paragraph}
+export {Form,Input,Label,Button,ContainerPage,Title,PageContainer,Paragraph,FileContainer}
