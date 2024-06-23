@@ -11,7 +11,6 @@ const AppContainer = styled.main`
 `;
 
 const AppHeader = styled.header`
-    
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -19,6 +18,7 @@ const AppHeader = styled.header`
     background-color: #000;
     border: 1px solid #e5e7eb;
     padding: 10px 20px;
+    height: 60px;
 `;
 
 const HeaderTitle =  styled.h1`
@@ -39,6 +39,8 @@ const ShoppingCart_btn = styled.button`
 `;
 
 const IconWrapper = styled.div`
+    position: relative;
+    display: inline-block;
     cursor: pointer;
 
     &:active {
@@ -46,4 +48,18 @@ const IconWrapper = styled.div`
     }
 `;
 
-export { AppContainer, AppHeader, HeaderTitle, ShoppingCart_btn,  IconWrapper}
+const Badge = styled.div`
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
+
+export { AppContainer, AppHeader, HeaderTitle, ShoppingCart_btn,  IconWrapper, Badge}

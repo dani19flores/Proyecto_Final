@@ -54,4 +54,16 @@ const Link = styled.a`
     }
 `;
 
-export {PageContainer, ContainerPage,Header, MainContent, Footer, Title, Paragraph, Link}
+const CenteredContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+`;
+
+const ImagePromotional = styled.img`
+    width: 250px;
+`;
+
+export {PageContainer, ContainerPage,Header, MainContent, Footer, Title, Paragraph, Link, ImagePromotional, CenteredContainer}

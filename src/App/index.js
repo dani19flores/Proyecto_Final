@@ -1,15 +1,17 @@
 import { useState } from "react";
 import Products from "../components/Products";
-import { AppContainer, AppHeader, IconWrapper } from "./styles";
+import { AppContainer, AppHeader, IconWrapper, Badge} from "./styles";
 import { SiHomeadvisor } from "react-icons/si";
 import { FaShoppingCart } from "react-icons/fa";
 import { FaBars } from "react-icons/fa";
 import MainPage from "../components/MainPage";
 import { Route ,Routes } from 'react-router-dom';
+import { useSelector } from "react-redux";
 
 function App() {
   const [visible, setVisible] = useState(false)
   const [menu_visible, menu_setVisible] = useState(false)
+  const itemCount = useSelector(state => state.products.ProductCount);
 
   const handleVisible = () =>{
       setVisible(!visible);
@@ -25,10 +27,11 @@ function App() {
           <IconWrapper>
             <FaBars size={40} color="white" onClick={handleMenuVisible}/>
           </IconWrapper>
-            <SiHomeadvisor size={50} color="white"/>
-            <IconWrapper>
-              <FaShoppingCart size={40} color="white" onClick={handleVisible}/>
-            </IconWrapper>
+          <SiHomeadvisor size={50} color="white"/>
+          <IconWrapper>
+            <FaShoppingCart size={40} color="white" onClick={handleVisible}/>
+            {itemCount > 0 && <Badge>{itemCount}</Badge>}
+          </IconWrapper>
         </AppHeader>
         <Routes>
           <Route path="/" element={<MainPage visible={visible} menu_visible={menu_visible}/>} />

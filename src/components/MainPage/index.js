@@ -1,6 +1,6 @@
 import Menu from "../Menu";
 import ShoppingCart from "../Products/ShoppingCart";
-import {PageContainer, ContainerPage, Header, MainContent, Footer, Title, Paragraph, Link} from "./style";
+import {PageContainer, ContainerPage, Header, MainContent, Footer, Title, Paragraph, Link, ImagePromotional, CenteredContainer} from "./style";
 
 const MainPage = ({visible,menu_visible}) => {
     return (
@@ -10,12 +10,27 @@ const MainPage = ({visible,menu_visible}) => {
             }
             <PageContainer>
                 <Header>
-                    <Title>¡Bienvenido a la pagian de productos!</Title>
+                    <Title>Las mejores ofertas</Title>
                 </Header>
                 <MainContent>
+                    <Title>
+                        BLACK FRIDAY
+                    </Title>
                     <Paragraph>
-                        En esta papgina puedes encontrar variedad de todos los productos, tiene un carrito donde puedas agregarlos y al finalizar comprar donde encriptara tus datos para su mayor seguridad
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                     </Paragraph>
+                    <CenteredContainer>
+                        <Paragraph>
+                            Se acaba pronto, aprovecha
+                        </Paragraph>
+                        <ImagePromotional 
+                            src='https://static.vecteezy.com/system/resources/previews/005/725/623/original/special-offer-sale-red-tag-isolated-illustration-discount-offer-price-label-symbol-for-advertising-campaign-in-retail-sale-promo-marketing-50-percent-off-discount-sticker-vector.jpg'
+                            alt="Imagen Promocional"
+                        />
+                        <Paragraph>
+                            Aproveche el 50 por ciento de descuento en productos seleccionados.
+                        </Paragraph>
+                    </CenteredContainer>
                     <Paragraph>
                         Visita nuestro <Link href="/cart">catálogo de productos</Link>.
                     </Paragraph>

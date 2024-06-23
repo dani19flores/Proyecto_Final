@@ -1,6 +1,7 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import axios from 'axios';
 import { FAILED, IDLE, LOADING, SUCCEEDED } from "./status";
+import Products from "../components/Products";
 
 export const fetchProducts = createAsyncThunk('product/fetchProducts', async () =>{
     const response = await axios.get('https://api.escuelajs.co/api/v1/products');
@@ -14,14 +15,17 @@ const productSlice = createSlice({
         status: IDLE,
         products: [],
         shoppingCart: [],
+        ProductCount: 0
     },
     //imer
     reducers:{
         addProducts: (state, action) => {
             state.shoppingCart.push(action.payload);
+            state.ProductCount++;
         },
         removeProduct: (state,action) => {
             state.shoppingCart = state.shoppingCart.filter(product => product.id !== action.payload);
+            state.ProductCount--;
         }
     },
     extraReducers: builder => {
